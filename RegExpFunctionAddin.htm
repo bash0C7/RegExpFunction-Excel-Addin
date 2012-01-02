@@ -1,0 +1,186 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+  <meta http-equiv="Content-Language" content="ja">
+  <meta http-equiv="Content-Type" content="text/html; charset=EUC-JP">
+  <meta http-equiv="Content-Script-Type" content="text/javascript; charset=euc-jp">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta name="generator" content="Hiki 0.7-devel-20050422">
+  <title>toshiaki - 正規表現Excelアドイン</title>
+  <link rel="stylesheet" type="text/css" href="../theme/hiki_base.css" media="all">
+  <link rel="stylesheet" type="text/css" href="../theme/default/default.css" media="all">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://wiki.fdiary.net/toshiaki/?c=rss">  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<body>
+<a name="top"> </a>
+<div class="main">
+  <h1 class="header"><a href="./?c=search;key=%C0%B5%B5%AC%C9%BD%B8%BDExcel%A5%A2%A5%C9%A5%A4%A5%F3">正規表現Excelアドイン</a></h1>
+  
+  
+  <div><div class="day">
+  <h2><span class="date"><a name="l0"> </a></span><span class="title">概要</span></h2>
+  <div class="body">
+    <div class="section">
+      <p>正規表現による文字列操作ワークシート関数を提供します</p>
+<h3><a name="l1"><span class="sanchor">&nbsp;</span></a>動作環境</h3>
+<p>Excel2000以降・IE5.5以降なら多分動くでしょう</p>
+    </div>
+  </div>
+</div>
+<div class="day">
+  <h2><span class="date"><a name="l2"> </a></span><span class="title">インストール</span></h2>
+  <div class="body">
+    <div class="section">
+      <ol><li>RegExpFunctionAddin<a class="nodisp" href="./?c=edit;p=RegExpFunctionAddin" title="ページ RegExpFunctionAddin を新規作成し、編集します。">?</a>.xlaをExcelアドインとして登録します
+<li>関数の貼り付けダイアログでユーザ定義分類内のRegExp<a class="nodisp" href="./?c=edit;p=RegExp" title="ページ RegExp を新規作成し、編集します。">?</a>(Count|Execute|Replace|Test)を選びます
+<li>必要な引数(後述)を与えます
+</ol>
+    </div>
+  </div>
+</div>
+<div class="day">
+  <h2><span class="date"><a name="l3"> </a></span><span class="title">関数の説明</span></h2>
+  <div class="body">
+    <div class="section">
+      <h3><a name="l4"><span class="sanchor">&nbsp;</span></a>RegExpCount<a class="nodisp" href="./?c=edit;p=RegExpCount" title="ページ RegExpCount を新規作成し、編集します。">?</a></h3>
+<h4><a name="l5"> </a>概要</h4>
+<p>正規表現を使って文字列を検索し、パターンにマッチする文字列が何個あるか調べます</p>
+<h4><a name="l6"> </a>引数</h4>
+<dl><dt>共通引数</dt>
+<dd>後述</dd>
+</dl>
+<h4><a name="l7"> </a>戻り値</h4>
+<dl><dt>個数</dt>
+<dd>パターンにマッチする文字列が何個あるか</dd>
+</dl>
+<h3><a name="l8"><span class="sanchor">&nbsp;</span></a>RegExpExecute<a class="nodisp" href="./?c=edit;p=RegExpExecute" title="ページ RegExpExecute を新規作成し、編集します。">?</a></h3>
+<h4><a name="l9"> </a>概要</h4>
+<p>正規表現を使って文字列を検索し、パターンにマッチした取得インデックス番目の一致文字列を返します</p>
+<h4><a name="l10"> </a>引数</h4>
+<dl><dt>共通引数</dt>
+<dd>後述</dd>
+<dt>取得インデックス</dt>
+<dd>検索文字列内で一致した部分の内、何個目の項目を返すかを指定</dd>
+</dl>
+<h4><a name="l11"> </a>戻り値</h4>
+<dl><dt>一致文字列</dt>
+<dd>取得インデックスで指定した部分一致文字列を返します</dd>
+</dl>
+<h3><a name="l12"><span class="sanchor">&nbsp;</span></a>RegExpReplace<a class="nodisp" href="./?c=edit;p=RegExpReplace" title="ページ RegExpReplace を新規作成し、編集します。">?</a></h3>
+<h4><a name="l13"> </a>概要</h4>
+<p>正規表現を使ってパターンがマッチする部分の文字列を置き換えます</p>
+<h4><a name="l14"> </a>引数</h4>
+<dl><dt>共通引数</dt>
+<dd>後述</dd>
+<dt>置換文字列</dt>
+<dd>置換先文字列を指定します</dd>
+</dl>
+<h4><a name="l15"> </a>戻り値</h4>
+<dl><dt>置換後文字列</dt>
+<dd>マッチ箇所を置き換えた文字列を返します</dd>
+</dl>
+<h3><a name="l16"><span class="sanchor">&nbsp;</span></a>RegExpTest<a class="nodisp" href="./?c=edit;p=RegExpTest" title="ページ RegExpTest を新規作成し、編集します。">?</a></h3>
+<h4><a name="l17"> </a>概要</h4>
+<p>正規表現を使ってパターンがマッチするか調べます</p>
+<h4><a name="l18"> </a>引数</h4>
+<dl><dt>共通引数</dt>
+<dd>後述</dd>
+</dl>
+<h4><a name="l19"> </a>戻り値</h4>
+<dl><dt>マッチ可否</dt>
+<dd>パターンにマッチしたらTrue、マッチしなかったらFalseを返します</dd>
+</dl>
+<h3><a name="l20"><span class="sanchor">&nbsp;</span></a>共通引数</h3>
+<dl><dt>対象文字列</dt>
+<dd>検索対象の文字列です</dd>
+<dt>正規表現</dt>
+<dd>検索に使う正規表現のパターン文字列です</dd>
+<dt>全体処理可能</dt>
+<dd>置き換え時等で文字列全体を処理対象とする場合True、一番目に一致した文字列のみを処理する場合Falseを指定します。省略可。デフォルトはTrue</dd>
+<dt>大文字小文字区別無視</dt>
+<dd>大文字と小文字を区別しない場合はTrue、区別する場合Falseを指定。省略可。デフォルトはTrue</dd>
+<dt>複数行文字列使用</dt>
+<dd>改行直後の文字を文字列の先頭と見なす場合True、見なさない場合False。省略可。デフォルトはTrue</dd>
+</dl>
+<h3><a name="l21"><span class="sanchor">&nbsp;</span></a>使える正規表現</h3>
+<p>VBScript RegExp<a class="nodisp" href="./?c=edit;p=RegExp" title="ページ RegExp を新規作成し、編集します。">?</a>クラスで扱える正規表現に準拠します。
+<a href="http://www.microsoft.com/japan/msdn/columns/scripting/scripting051099.asp" class="external">Clinick's Clinic on Scripting: 正規表現による Visual Basic Scripting Edition (VBScript) の機能強化</a>
+を参照して下さい</p>
+<h3><a name="l22"><span class="sanchor">&nbsp;</span></a>取り扱い</h3>
+<p>ソース改変、再配布、その他使われる方の責任でご自由にお取り扱い下さい</p>
+    </div>
+  </div>
+</div>
+<div class="day">
+  <h2><span class="date"><a name="l23"> </a></span><span class="title">ダウンロード</span></h2>
+  <div class="body">
+    <div class="section">
+      <p><del>RegExpFunctionAddin<a class="nodisp" href="./?c=edit;p=RegExpFunctionAddin" title="ページ RegExpFunctionAddin を新規作成し、編集します。">?</a>.zip</del>まだアップロードしてません(´Д｀) 
+→<a href="./?%C0%B5%B5%AC%C9%BD%B8%BDExcel%A5%A2%A5%C9%A5%A4%A5%F3%A5%BD%A1%BC%A5%B9%A5%B3%A1%BC%A5%C9">ソースコード</a>はページ作りました</p>
+    </div>
+  </div>
+</div>
+<div class="day">
+  <h2><span class="date"><a name="l24"> </a></span><span class="title">連絡先</span></h2>
+  <div class="body">
+    <div class="section">
+      <p>としあき（toshiaki＠
+tnz.jp）</p>
+    </div>
+  </div>
+</div>
+<div class="day">
+  <h2><span class="date"><a name="l25"> </a></span><span class="title">更新履歴</span></h2>
+  <div class="body">
+    <div class="section">
+      <dl><dt>20050423</dt>
+<dd>完成</dd>
+</dl>
+    </div>
+  </div>
+</div>
+<div class="day">
+  <h2><span class="date"><a name="l26"> </a></span><span class="title">コメント</span></h2>
+  <div class="body">
+    <div class="section">
+      <p><form action="./" method="post">
+  <div>
+    お名前: <input type="text" name="name" value="" size="10">
+    件名: <input type="text" name="subject" size="40"><br>
+    <textarea cols="60" rows="8" name="msg" size="40"></textarea><br>
+    <input type="submit" name="comment" value="投稿">
+    <input type="hidden" name="bbs_num" value="1">
+    <input type="hidden" name="c" value="plugin">
+    <input type="hidden" name="p" value="正規表現Excelアドイン">
+    <input type="hidden" name="plugin" value="bbs_post">
+  </div>
+</form>
+</p>
+    </div>
+  </div>
+</div>
+</div>
+  <div class="day">
+    <div class="comment">
+      <div class="caption">
+        更新日時:Sat Apr 23 12:39:29 JST 2005<br>
+        キーワード:<br>
+        参照:[<a href="./">FrontPage</a>] <br>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="footer">Founded by としあき.<br>
+This Wiki is running on <a href="http://wiki.fdiary.net/">fdiary.net wikifarm</a>. Powered by <a href="http://www.netlab.jp/">NaCl</a> and <a href="http://www.j96.org/~kouji/security-keeper/">security-keeper</a>.<br>
+Generated by <a href="http://www.namaraii.com/hiki/">Hiki</a> 0.7-devel-20050422.<br>
+Powered by <a href="http://www.ruby-lang.org/">Ruby</a> 1.8.2 with <a href="http://www.modruby.net/">mod_ruby</a>.
+</div>
+</body>
+</html>
